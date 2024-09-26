@@ -2,7 +2,7 @@
   <div
     class="h-[90px] backdrop-blur-sm flex items-center fixed top-0 w-full z-10"
   >
-    <nav class="container mx-auto flex justify-between items-center">
+    <nav class="container mx-auto flex justify-between items-center p-2">
       <div>
         <a href="#">
           <img
@@ -22,8 +22,40 @@
           }
         </ul>
       </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden" (click)="toggleMobileMenu()">
+        <img
+          ngSrc="assets/images/toggleIcon.svg"
+          height="18"
+          width="30"
+          alt="Mobile Menu"
+        />
+      </button>
     </nav>
   </div>
+
+  <!-- Mobile Menu -->
+  @if (isMenuOpen) {
+  <div
+    class="md:hidden bg-black absolute inset-0 z-10 text-white before:bg-[] overflow-hidden"
+  >
+    <div class="h-[347px] w-[252px] absolute cursor-not-allowed -top-5 -left-5">
+      <img ngSrc="assets/images/claws.svg" fill />
+    </div>
+    <nav class="flex items-center justify-center h-full z-20">
+      <ul class="flex flex-col gap-12 text-xl">
+        @for (links of navbarLinks; track $index) {
+        <li>
+          <a href="{{ links.href }}" (click)="closeMobileMenu()">
+            {{ links.label }}
+          </a>
+        </li>
+        }
+      </ul>
+    </nav>
+  </div>
+  }
   <div class="bg-red-700 h-screen relative">
     <img ngSrc="assets/images/slides/background.png" alt="" fill />
   </div>
