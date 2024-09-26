@@ -1,0 +1,30 @@
+<header class="bg-slate-800">
+  <div
+    class="h-[90px] backdrop-blur-sm flex items-center fixed top-0 w-full z-10"
+  >
+    <nav class="container mx-auto flex justify-between items-center">
+      <div>
+        <a href="#">
+          <img
+            ngSrc="/assets/images/menosdomesmo.svg"
+            alt=""
+            width="253"
+            height="50"
+          />
+        </a>
+      </div>
+      <div class="hidden md:block">
+        <ul class="flex text-white gap-8">
+          @for (links of navbarLinks; track $index) {
+          <li>
+            <a href="{{ links.href }}">{{ links.label }}</a>
+          </li>
+          }
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="bg-red-700 h-screen relative">
+    <img ngSrc="assets/images/slides/background.png" alt="" fill />
+  </div>
+</header>
