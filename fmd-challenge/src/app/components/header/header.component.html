@@ -1,6 +1,6 @@
 <header>
   <div
-    class="h-[90px] backdrop-blur-sm flex items-center fixed top-0 w-full z-10"
+    class="h-[90px] backdrop-blur-md flex items-center fixed top-0 w-full z-10"
   >
     <nav class="container mx-auto flex justify-between items-center p-2">
       <div>
@@ -38,9 +38,11 @@
   <!-- Mobile Menu -->
   @if (isMenuOpen) {
   <div
-    class="md:hidden bg-black absolute inset-0 z-10 text-white before:bg-[] overflow-hidden"
+    class="md:hidden bg-black fixed inset-0 z-10 text-white overflow-hidden overscroll-y-none"
   >
-    <div class="h-[347px] w-[252px] absolute cursor-not-allowed -top-5 -left-5">
+    <div
+      class="h-60 w-40 sm:h-[347px] sm:w-[252px] absolute cursor-not-allowed -top-5 -left-5"
+    >
       <img ngSrc="assets/images/claws.svg" fill />
     </div>
     <nav class="flex items-center justify-center h-full z-20">

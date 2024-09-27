@@ -29,7 +29,7 @@ export class NewsletterComponent {
     email: new FormControl('', [Validators.required]),
   });
 
-  isDialogVisible: boolean = true;
+  isDialogVisible: boolean = false;
 
   showDialog() {
     this.isDialogVisible = true;
