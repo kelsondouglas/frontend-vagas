@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { DialogModule } from 'primeng/dialog';
 
 @Component({
   selector: 'app-newsletter',
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
     FloatLabelModule,
     ReactiveFormsModule,
     CommonModule,
+    DialogModule,
   ],
   templateUrl: './newsletter.component.html',
   styleUrl: './newsletter.component.scss',
@@ -27,7 +29,9 @@ export class NewsletterComponent {
     email: new FormControl('', [Validators.required]),
   });
 
-  constructor() {
-    console.log(this.newsletterForm);
+  isDialogVisible: boolean = true;
+
+  showDialog() {
+    this.isDialogVisible = true;
   }
 }

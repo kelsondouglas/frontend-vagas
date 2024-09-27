@@ -7,7 +7,10 @@
       newsletter
     </h2>
     <div>
-      <form [formGroup]="newsletterForm" class="flex flex-col gap-6">
+      <form
+        [formGroup]="newsletterForm"
+        class="flex flex-col md:flex-row gap-6"
+      >
         <div>
           <p-floatLabel>
             <input
@@ -57,6 +60,7 @@
           class="bg-yellow-main rounded-xl md:w-20 w-full h-10 disabled:opacity-50 disabled:cursor-auto flex justify-center items-center"
           type="submit"
           [disabled]="!newsletterForm.valid"
+          (click)="showDialog()"
         >
           <img src="assets/images/slides/arrow-right.svg" alt="" />
         </button>
@@ -64,3 +68,31 @@
     </div>
   </div>
 </section>
+
+<p-dialog
+  [modal]="true"
+  [(visible)]="isDialogVisible"
+  [style]="{ width: '25rem' }"
+  contentStyleClass="overflow-hidden bg-black rounded-lg p-0"
+  showHeader="false"
+>
+  <section
+    class="flex items-center justify-center h-[255px] w-full max-w-[469px] text-white relative before:absolute before:bg-yellow-main before:w-2 before:h-full before:left-0 before:top-0 px-4"
+  >
+    <div class="flex flex-col items-center gap-5">
+      <img src="assets/images/modal-success.svg" alt="" class="size-[60px]" />
+      <h2 class="font-extrabold text-2xl">Sucesso!</h2>
+      <p class="text-center">
+        sua inscrição foi realizada e em breve você começará a receber nossas
+        notícias.
+      </p>
+    </div>
+
+    <button
+      class="absolute top-2 right-2 text-2xl"
+      (click)="isDialogVisible = false"
+    >
+      X
+    </button>
+  </section>
+</p-dialog>
