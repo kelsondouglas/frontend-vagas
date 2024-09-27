@@ -1,8 +1,67 @@
 <section id="section3" class="flex gap-12 pb-12 flex-col text-white bg-black">
   <h1 class="text-5xl font-extrabold text-center">Lorem Ipsum Dolor</h1>
-  <div class="container mx-auto px-3 flex justify-between">
+  <div
+    class="container mx-auto px-3 lg:grid lg:grid-cols-3 justify-between hidden"
+  >
     <app-rating-card />
     <app-rating-card />
     <app-rating-card />
+  </div>
+  <div class="container mx-auto px-3 lg:hidden">
+    <p-carousel
+      [value]="ratings"
+      [numVisible]="1"
+      [numScroll]="1"
+      [circular]="false"
+      (onPage)="onChange($event)"
+      [showIndicators]="false"
+      [showNavigators]="false"
+      [responsiveOptions]="[
+        { breakpoint: '1024px', numVisible: 2, numScroll: 1 },
+        { breakpoint: '768px', numVisible: 1, numScroll: 1 }
+      ]"
+      #carousel
+    >
+      <ng-template let-ratings pTemplate="item">
+        <app-rating-card />
+      </ng-template>
+
+      <ng-template pTemplate="footer">
+        <!-- Navigation -->
+        <div class="flex justify-between container mx-auto mt-16 mb-8 md:my-24">
+          <div class="flex gap-1">
+            @for (item of ratings; track $index) {
+            <span
+              class="w-3 h-3 rounded-full"
+              [ngClass]="{
+                'bg-[#E9FF00]': activeIndex === $index,
+                'bg-white': activeIndex !== $index
+              }"
+            ></span>
+
+            }
+          </div>
+
+          <div class="flex gap-7">
+            <button (click)="carousel.navBackward($event)">
+              <img
+                ngSrc="assets/images/slides/arrow-left.svg"
+                height="10"
+                width="20"
+                alt=""
+              />
+            </button>
+            <button (click)="carousel.navForward($event)">
+              <img
+                ngSrc="assets/images/slides/arrow-right.svg"
+                height="10"
+                width="20"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
   </div>
 </section>
