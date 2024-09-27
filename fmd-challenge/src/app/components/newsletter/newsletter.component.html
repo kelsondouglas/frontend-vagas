@@ -1,11 +1,13 @@
 <section class="bg-black text-white py-12">
-  <div class="flex justify-between items-center container mx-auto">
-    <h2 class="text-3xl md:text-6xl font-extrabold">
+  <div
+    class="flex justify-between md:items-center container px-4 mx-auto flex-col md:flex-row gap-4"
+  >
+    <h2 class="text-3xl md:text-6xl font-extrabold text-center md:text-left">
       Assine nossa <br />
       newsletter
     </h2>
     <div>
-      <form [formGroup]="newsletterForm" class="flex gap-6">
+      <form [formGroup]="newsletterForm" class="flex flex-col gap-6">
         <div>
           <p-floatLabel>
             <input
@@ -14,7 +16,7 @@
                   newsletterForm.controls.name.invalid &&
                   newsletterForm.controls.name.touched
               }"
-              class="bg-black text-white border border-yellow-main max-w-60 h-10 rounded-xl px-2"
+              class="bg-black text-white border border-yellow-main md:max-w-60 w-full h-10 rounded-xl px-2"
               pInputText
               id="name"
               formControlName="name"
@@ -36,7 +38,7 @@
                   newsletterForm.controls.email.invalid &&
                   newsletterForm.controls.email.touched
               }"
-              class="bg-black text-white border border-yellow-main max-w-60 h-10 rounded-xl px-2"
+              class="bg-black text-white border border-yellow-main md:max-w-60 w-full h-10 rounded-xl px-2"
               pInputText
               id="email"
               formControlName="email"
@@ -52,7 +54,7 @@
         </div>
 
         <button
-          class="bg-yellow-main rounded-xl w-20 h-10 disabled:opacity-50 disabled:cursor-auto flex justify-center items-center"
+          class="bg-yellow-main rounded-xl md:w-20 w-full h-10 disabled:opacity-50 disabled:cursor-auto flex justify-center items-center"
           type="submit"
           [disabled]="!newsletterForm.valid"
         >
