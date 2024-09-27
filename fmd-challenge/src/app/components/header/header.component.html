@@ -1,4 +1,4 @@
-<header class="bg-slate-800">
+<header>
   <div
     class="h-[90px] backdrop-blur-sm flex items-center fixed top-0 w-full z-10"
   >
@@ -47,7 +47,7 @@
       <ul class="flex flex-col gap-12 text-xl">
         @for (links of navbarLinks; track $index) {
         <li>
-          <a href="{{ links.href }}" (click)="closeMobileMenu()">
+          <a href="{{ links.href }}" (click)="toggleMobileMenu()">
             {{ links.label }}
           </a>
         </li>
@@ -56,7 +56,7 @@
     </nav>
   </div>
   }
-  <div class="bg-red-700 h-screen relative">
-    <img ngSrc="assets/images/slides/background.png" alt="" fill />
+  <div class="h-screen relative">
+    <app-slider />
   </div>
 </header>

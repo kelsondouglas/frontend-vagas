@@ -1,0 +1,72 @@
+<p-carousel
+  [value]="sliderContent"
+  [numVisible]="1"
+  [numScroll]="1"
+  [showNavigators]="false"
+  [showIndicators]="false"
+  #carousel
+  (onPage)="onChange($event)"
+>
+  <ng-template let-item pTemplate="content">
+    <section
+      class="h-screen relative flex flex-col justify-end text-white px-8 md:px-0"
+    >
+      <img
+        ngSrc="assets/images/slides/background.png"
+        fill
+        class="-z-10"
+        alt=""
+      />
+      <div
+        class="bg-gradient-to-b from-transparent to-black inset-0 absolute -z-[5]"
+      ></div>
+
+      <div class="container mx-auto pl-3">
+        <h1
+          class="text-2xl md:text-6xl max-w-[288px] md:max-w-[600px] relative font-extrabold before:w-1 before:h-[85%] before:bg-[#E9FF00] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2 md:before:w-2 md:before:-left-4"
+        >
+          Lorem ipsum dolor sit amet
+        </h1>
+        <p class="text-sm md:text-xl mt-3 md:max-w-[638px] text-justify">
+          Quisque cursus nunc urna, eget ultricies orci accumsan at. Cras metus
+          nibh, viverra vitae erat ut, lacinia interdum nisl.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex justify-between container mx-auto mt-16 mb-8 md:my-24">
+        <div class="flex gap-1">
+          @for (item of sliderContent; track $index) {
+          <span
+            class="w-3 h-3 rounded-full"
+            [ngClass]="{
+              'bg-[#E9FF00]': activeIndex === $index,
+              'bg-white': activeIndex !== $index
+            }"
+          ></span>
+
+          }
+        </div>
+
+        <div class="flex gap-7">
+          <button (click)="carousel.navBackward($event)">
+            <img
+              ngSrc="assets/images/slides/arrow-left.svg"
+              height="10"
+              width="20"
+              alt=""
+            />
+          </button>
+          <button (click)="carousel.navForward($event)">
+            <img
+              ngSrc="assets/images/slides/arrow-right.svg"
+              height="10"
+              width="20"
+              alt=""
+            />
+          </button>
+        </div>
+      </div>
+    </section>
+  </ng-template>
+</p-carousel>
