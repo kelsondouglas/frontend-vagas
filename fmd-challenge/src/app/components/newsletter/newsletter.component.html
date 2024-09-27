@@ -1,0 +1,64 @@
+<section class="bg-black text-white py-12">
+  <div class="flex justify-between items-center container mx-auto">
+    <h2 class="text-3xl md:text-6xl font-extrabold">
+      Assine nossa <br />
+      newsletter
+    </h2>
+    <div>
+      <form [formGroup]="newsletterForm" class="flex gap-6">
+        <div>
+          <p-floatLabel>
+            <input
+              [ngClass]="{
+                'border-red-500':
+                  newsletterForm.controls.name.invalid &&
+                  newsletterForm.controls.name.touched
+              }"
+              class="bg-black text-white border border-yellow-main max-w-60 h-10 rounded-xl px-2"
+              pInputText
+              id="name"
+              formControlName="name"
+            />
+            <label for="name" class="text-white">Nome</label>
+          </p-floatLabel>
+          @if (newsletterForm.controls.name.invalid &&
+          (newsletterForm.controls.name.dirty ||
+          newsletterForm.controls.name.touched)) {
+          <small class="text-red-500">O campo nome é obrigatório.</small>
+
+          }
+        </div>
+        <div>
+          <p-floatLabel>
+            <input
+              [ngClass]="{
+                'border-red-500':
+                  newsletterForm.controls.email.invalid &&
+                  newsletterForm.controls.email.touched
+              }"
+              class="bg-black text-white border border-yellow-main max-w-60 h-10 rounded-xl px-2"
+              pInputText
+              id="email"
+              formControlName="email"
+            />
+            <label for="email" class="text-white">Email</label>
+          </p-floatLabel>
+          @if (newsletterForm.controls.email.invalid &&
+          (newsletterForm.controls.email.dirty ||
+          newsletterForm.controls.email.touched)) {
+          <small class="text-red-500">O campo e-mail é obrigatório.</small>
+
+          }
+        </div>
+
+        <button
+          class="bg-yellow-main rounded-xl w-20 h-10 disabled:opacity-50 disabled:cursor-auto flex justify-center items-center"
+          type="submit"
+          [disabled]="!newsletterForm.valid"
+        >
+          <img src="assets/images/slides/arrow-right.svg" alt="" />
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

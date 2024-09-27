@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { CardsSectionComponent } from './components/cards-section/cards-section.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     CardsSectionComponent,
     FooterComponent,
+    NewsletterComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
