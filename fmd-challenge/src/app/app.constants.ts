@@ -1,14 +1,18 @@
 export const NAVBAR_LINKS = [
   {
-    label: 'Home',
+    label: 'Link para seção 1',
     href: '#',
   },
   {
-    label: 'About',
-    href: '#about',
+    label: 'Link para seção 2',
+    href: '#section2',
   },
   {
-    label: 'Contact',
-    href: '#contact',
+    label: 'Link para seção 3',
+    href: '#section3',
+  },
+  {
+    label: 'Link para o footer',
+    href: '#footer',
   },
 ];
